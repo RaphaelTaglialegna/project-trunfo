@@ -23,6 +23,7 @@ class Form extends React.Component {
             Name
             <div className="control">
               <input
+                name="cardName"
                 className="input "
                 data-testid="name-input" // Requisit for the project
                 type="text"
@@ -39,6 +40,7 @@ class Form extends React.Component {
             Descrição
             <div className="control">
               <textarea
+                name="cardDescription"
                 className="textarea"
                 placeholder="Textarea"
                 data-testid="description-input"
@@ -55,6 +57,7 @@ class Form extends React.Component {
           </div>
           <div className="control">
             <input
+              name="cardAttr1"
               className="input is-small"
               data-testid="attr1-input" // Requisit for the project
               type="number"
@@ -71,6 +74,7 @@ class Form extends React.Component {
           </div>
           <div className="control">
             <input
+              name="cardAttr2"
               className="input is-small"
               data-testid="attr2-input"// Requisit for the project
               type="number"
@@ -87,6 +91,7 @@ class Form extends React.Component {
           </div>
           <div className="control">
             <input
+              name="cardAttr3"
               className="input is-small"
               data-testid="attr3-input"// Requisit for the project
               type="number"
@@ -101,6 +106,7 @@ class Form extends React.Component {
             Imagem
             <div className="control">
               <input
+                name="cardImage"
                 className="input "
                 data-testid="image-input"// Requisit for the project
                 type="text"
@@ -113,6 +119,7 @@ class Form extends React.Component {
         </div>
         <div className="select is-rounded">
           <select
+            name="cardRare"
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
@@ -126,6 +133,7 @@ class Form extends React.Component {
           <div className="control">
             <label className="checkbox" htmlFor="checkbox">
               <input
+                name="cardTrunfo"
                 type="checkbox"
                 data-testid="trunfo-input"
                 checked={ cardTrunfo }

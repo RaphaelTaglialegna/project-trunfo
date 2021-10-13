@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import Form from './Form';
-
 class Card extends React.Component {
   render() {
-    const { cardName,
+    const {
+      cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
@@ -14,26 +13,50 @@ class Card extends React.Component {
       cardRare,
       cardTrunfo,
     } = this.props;
-    return (
-      <div className="is-flex is-align-content-center">
-        <div className="card is-flex">
-          <h2 data-testid="name-card">{cardName}</h2>
-          <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-          <p data-testid="description-card">{cardDescription}</p>
-          <ul>
-            <li data-testid="attr1-card">{cardAttr1}</li>
-            <li data-testid="attr2-card">{cardAttr2}</li>
-            <li data-testid="attr3-card">{cardAttr3}</li>
-          </ul>
-          <p data-testid="rare-card">{cardRare}</p>
-          <div>
-            {
-              cardTrunfo === true ? <p data-testid="trunfo-card">Super Trunfo</p> : <p />
-            }
-          </div>
 
+    return (
+
+      <div className="card">
+
+        <div className="card-content">
+          <h2 className="title" data-testid="name-card">{cardName}</h2>
         </div>
+
+        <div className="card-image">
+          <figure className="image is-4by3">
+            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+          </figure>
+        </div>
+        <div className="content">
+          <p data-testid="description-card">{cardDescription}</p>
+        </div>
+
+        <div className="content">
+          <ul>
+            <li data-testid="attr1-card">
+              Força:
+              { cardAttr1}
+            </li>
+            <li data-testid="attr2-card">
+              Ataque:
+              { cardAttr2}
+            </li>
+            <li data-testid="attr3-card">
+              Defesa:
+              { cardAttr3}
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p data-testid="rare-card">{cardRare}</p>
+          {
+            cardTrunfo === true ? <p data-testid="trunfo-card">Super Trunfo</p> : <p />
+          }
+        </div>
+
       </div>
+
     );
   }
 }
