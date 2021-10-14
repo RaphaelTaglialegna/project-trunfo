@@ -94,6 +94,8 @@ class App extends React.Component {
   }
 
   render() {
+    const { myCreatedCards } = this.state;
+    // const cardSaved = myCreatedCards.map((card) => card);
     return (
       <>
         <section
@@ -125,6 +127,18 @@ class App extends React.Component {
             } }
           >
             <Card { ...this.state } />
+          </div>
+        </div>
+        <div>
+          { myCreatedCards.map((myCards) => (<Card
+            key={ myCards.cardName }
+            { ...myCards }
+          />)) }
+        </div>
+        <div className="flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front" />
+            <div className="flip-card-back" />
           </div>
         </div>
 
