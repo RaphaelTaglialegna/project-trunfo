@@ -24,9 +24,40 @@ class App extends React.Component {
   onInputChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value }, () => this.validation());
+  }
+
+  // Function de Checagem - Parte da logica foi tirada do projeto do aluno Alvaro Gulart - https://github.com/tryber/sd-015-a-project-tryunfo/pull/41
+  validation = () => {
+    const { cardName, cardDescription, cardImage } = this.state;
+
+    if (cardName !== '' && cardDescription !== '' && cardImage !== ''
+    && this.validationAtributes() !== false) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
+  }
+
+  validationAtributes = () => {
+    let { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const maxValue = 90;
+    const totalAtributs = 210;
+    // tranform the string in number
+    cardAttr1 = Number(cardAttr1);
+    cardAttr2 = Number(cardAttr2);
+    cardAttr3 = Number(cardAttr3);
+
+    const maxAtributes = (cardAttr1 + cardAttr2 + cardAttr3);
+
+    if (maxAtributes <= totalAtributs
+      && cardAttr1 >= 0 && cardAttr1 <= maxValue
+      && cardAttr2 >= 0 && cardAttr2 <= maxValue
+      && cardAttr3 >= 0 && cardAttr3 <= maxValue) {
+      return true;
+    }
+
+    return false;
   }
 
   render() {

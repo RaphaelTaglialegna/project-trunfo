@@ -97,6 +97,7 @@ class Form extends React.Component {
               type="number"
               placeholder="Text input"
               value={ cardAttr3 }
+              max="90"
               onChange={ onInputChange }
             />
           </div>

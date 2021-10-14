@@ -32,18 +32,18 @@ class Card extends React.Component {
         </div>
 
         <div className="content">
-          <ul>
+          <ul className="my_list">
             <li data-testid="attr1-card">
               Força:
               { cardAttr1}
             </li>
             <li data-testid="attr2-card">
               Ataque:
-              { cardAttr2}
+              {cardAttr2}
             </li>
             <li data-testid="attr3-card">
               Defesa:
-              { cardAttr3}
+              {cardAttr3}
             </li>
           </ul>
         </div>
