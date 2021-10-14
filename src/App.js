@@ -6,6 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      myCreatedCards: [],
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -56,8 +57,40 @@ class App extends React.Component {
       && cardAttr3 >= 0 && cardAttr3 <= maxValue) {
       return true;
     }
-
     return false;
+  }
+
+  onSaveButtonClick = () => {
+    const { myCreatedCards, cardTrunfo } = this.state;
+    const cards = [this.state];
+
+    if (cardTrunfo === true) {
+      this.setState({
+        myCreatedCards: [...myCreatedCards, ...cards],
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
+        cardImage: '',
+        cardRare: '',
+        cardTrunfo: false,
+        hasTrunfo: true,
+      });
+    } else {
+      this.setState({
+        myCreatedCards: [...myCreatedCards, ...cards],
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
+        cardImage: '',
+        cardRare: '',
+        cardTrunfo: false,
+        hasTrunfo: false,
+      });
+    }
   }
 
   render() {
