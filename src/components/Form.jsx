@@ -12,7 +12,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
@@ -64,6 +64,7 @@ class Form extends React.Component {
               placeholder="Text input"
               value={ cardAttr1 }
               onChange={ onInputChange }
+              max="90"
             />
           </div>
         </div>
@@ -81,6 +82,7 @@ class Form extends React.Component {
               placeholder="Text input"
               value={ cardAttr2 }
               onChange={ onInputChange }
+              max="90"
             />
           </div>
         </div>
@@ -130,20 +132,25 @@ class Form extends React.Component {
             <option>muito raro</option>
           </select>
         </div>
-        <div className="field">
-          <div className="control">
-            <label className="checkbox" htmlFor="checkbox">
-              <input
-                name="cardTrunfo"
-                type="checkbox"
-                data-testid="trunfo-input"
-                checked={ cardTrunfo }
-                onChange={ onInputChange }
-              />
-              Super Trybe Trunfo
-            </label>
-          </div>
-        </div>
+        {
+          hasTrunfo ? <>Você já tem um Super Trunfo em seu baralho</> : (
+            <div className="field">
+              <div className="control">
+                <label className="checkbox" htmlFor="checkbox">
+                  <input
+                    name="cardTrunfo"
+                    type="checkbox"
+                    data-testid="trunfo-input"
+                    checked={ cardTrunfo }
+                    onChange={ onInputChange }
+                    disabled={ hasTrunfo === true }
+                  />
+                </label>
+                Super Trybe Trunfo
+              </div>
+            </div>
+          )
+        }
         <div className="field is-grouped">
           <div className="control">
             <button
@@ -170,7 +177,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  // hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

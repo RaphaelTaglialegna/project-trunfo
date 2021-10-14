@@ -87,7 +87,7 @@ class App extends React.Component {
         cardAttr3: '0',
         cardImage: '',
         cardRare: '',
-        cardTrunfo: false,
+        cardTrunfo: true,
         hasTrunfo: false,
       });
     }
