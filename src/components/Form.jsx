@@ -132,6 +132,7 @@ class Form extends React.Component {
             <option>muito raro</option>
           </select>
         </div>
+        {/* Condição de checagem do super trunfo */}
         {
           hasTrunfo ? <>Você já tem um Super Trunfo em seu baralho</> : (
             <div className="field">
@@ -177,7 +178,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
