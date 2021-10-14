@@ -147,7 +147,7 @@ class Form extends React.Component {
                     disabled={ hasTrunfo === true }
                   />
                 </label>
-                Super Trybe Trunfo
+                Super Trybe Trunfo.
               </div>
             </div>
           )
