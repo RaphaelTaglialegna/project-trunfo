@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      myCreatedCards: [],
+      myCards: [],
       cardName: '',
       cardDescription: '',
       cardAttr1: '0',
@@ -61,12 +61,12 @@ class App extends React.Component {
   }
 
   onSaveButtonClick = () => {
-    const { myCreatedCards, cardTrunfo } = this.state;
+    const { myCards, cardTrunfo } = this.state;
     const cards = [this.state];
 
     if (cardTrunfo === true) {
       this.setState({
-        myCreatedCards: [...myCreatedCards, ...cards],
+        myCards: [...myCards, ...cards],
         cardName: '',
         cardDescription: '',
         cardAttr1: '0',
@@ -74,12 +74,11 @@ class App extends React.Component {
         cardAttr3: '0',
         cardImage: '',
         cardRare: '',
-        cardTrunfo: false,
         hasTrunfo: true,
       });
     } else {
       this.setState({
-        myCreatedCards: [...myCreatedCards, ...cards],
+        myCards: [...myCards, ...cards],
         cardName: '',
         cardDescription: '',
         cardAttr1: '0',
@@ -87,15 +86,22 @@ class App extends React.Component {
         cardAttr3: '0',
         cardImage: '',
         cardRare: '',
-        cardTrunfo: true,
         hasTrunfo: false,
       });
     }
   }
 
+  handleRemove = (element) => {
+    const { myCards } = this.state;
+    if (element.cardTrunfo) {
+      this.setState({ myCards: myCards.filter((newSet) => newSet !== element),
+        hasTrunfo: false });
+    } else { this.setState({ myCards: myCards.filter((newSet) => newSet !== element) }); }
+  }
+
   render() {
-    const { myCreatedCards } = this.state;
-    // const cardSaved = myCreatedCards.map((card) => card);
+    const { myCards } = this.state;
+
     return (
       <>
         <section
@@ -130,14 +136,24 @@ class App extends React.Component {
           </div>
         </div>
         <div>
-          { myCreatedCards.map((myCards) => (
-            <div className="card" key={ myCards.cardName }>
+          { myCards.map((myCard) => (
+            <div key={ myCard.cardName }>
               <Card
-                key={ myCards.cardName }
-                { ...myCards }
+                key={ myCard.cardName }
+                { ...myCard }
               />
-              <button type="reset">Delete</button>
-
+              <div className="field is-grouped">
+                <div className="control">
+                  <button
+                    className="button is-link"
+                    data-testid="delete-button"
+                    type="button"
+                    onClick={ () => this.handleRemove(myCard) }
+                  >
+                    Excluir
+                  </button>
+                </div>
+              </div>
             </div>))}
         </div>
         <div className="flip-card">
