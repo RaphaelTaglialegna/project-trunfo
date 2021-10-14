@@ -130,10 +130,15 @@ class App extends React.Component {
           </div>
         </div>
         <div>
-          { myCreatedCards.map((myCards) => (<Card
-            key={ myCards.cardName }
-            { ...myCards }
-          />)) }
+          { myCreatedCards.map((myCards) => (
+            <div className="card" key={ myCards.cardName }>
+              <Card
+                key={ myCards.cardName }
+                { ...myCards }
+              />
+              <button type="reset">Delete</button>
+
+            </div>))}
         </div>
         <div className="flip-card">
           <div className="flip-card-inner">
