@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 class Painel extends React.Component {
@@ -10,10 +9,10 @@ class Painel extends React.Component {
           Cards Saved
         </p>
         <p className="panel-tabs">
-          <a className="is-active">All</a>
-          <a>Normal</a>
-          <a>Raro</a>
-          <a>Super Raro</a>
+          <a href="null" className="is-active">All</a>
+          <a href="null">Normal</a>
+          <a href="null">Raro</a>
+          <a href="null">Super Raro</a>
         </p>
         <div className="panel-block">
           <p className="control has-icons-left">
@@ -23,30 +22,6 @@ class Painel extends React.Component {
             </span>
           </p>
         </div>
-        {/* <a className="panel-block is-active">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true" />
-          </span>
-          bulma
-        </a>
-        <a className="panel-block">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true" />
-          </span>
-          marksheet
-        </a>
-        <a className="panel-block">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true" />
-          </span>
-          minireset.css
-        </a>
-        <a className="panel-block">
-          <span className="panel-icon">
-            <i className="fas fa-book" aria-hidden="true" />
-          </span>
-          jgthms.github.io
-        </a> */}
       </article>
     );
   }
