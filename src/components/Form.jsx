@@ -17,7 +17,7 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick } = this.props;
     return (
-      <>
+      <div className="formMain">
         <div className="field">
           <label className="label" htmlFor="name">
             Name
@@ -51,8 +51,8 @@ class Form extends React.Component {
           </label>
         </div>
 
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
+        <div className="field is-vertical">
+          <div className="field-label is-horizontal">
             <div className="label">Atributo 1:</div>
           </div>
           <div className="control">
@@ -67,9 +67,7 @@ class Form extends React.Component {
               max="90"
             />
           </div>
-        </div>
 
-        <div className="field is-horizontal">
           <div className="field-label is-normal">
             <div className="label">Atributo 2:</div>
           </div>
@@ -85,9 +83,7 @@ class Form extends React.Component {
               max="90"
             />
           </div>
-        </div>
 
-        <div className="field is-horizontal">
           <div className="field-label is-normal">
             <div className="label">Atributo 3:</div>
           </div>
@@ -127,6 +123,7 @@ class Form extends React.Component {
             value={ cardRare }
             onChange={ onInputChange }
           >
+            <option value="" disabled selected>Select your option</option>
             <option>normal</option>
             <option>raro</option>
             <option>muito raro</option>
@@ -134,23 +131,26 @@ class Form extends React.Component {
         </div>
         {/* Condição de checagem do super trunfo */}
         {
-          hasTrunfo ? <>Você já tem um Super Trunfo em seu baralho</> : (
-            <div className="field">
-              <div className="control">
-                <label className="checkbox" htmlFor="checkbox">
-                  <input
-                    name="cardTrunfo"
-                    type="checkbox"
-                    data-testid="trunfo-input"
-                    checked={ cardTrunfo }
-                    onChange={ onInputChange }
-                    disabled={ hasTrunfo === true }
-                  />
-                </label>
-                Super Trybe Trunfo.
+          hasTrunfo
+            ? <div className="trunfCard">Você já tem um Super Trunfo em seu baralho</div>
+            : (
+              <div className="field trunfCard">
+                <div className="control">
+                  <label className="checkbox" htmlFor="checkbox">
+                    <input
+                      name="cardTrunfo"
+                      type="checkbox"
+                      data-testid="trunfo-input"
+                      checked={ cardTrunfo }
+                      onChange={ onInputChange }
+                      disabled={ hasTrunfo === true }
+                    />
+                  </label>
+                  &nbsp;
+                  Super Trybe Trunfo.
+                </div>
               </div>
-            </div>
-          )
+            )
         }
         <div className="field is-grouped">
           <div className="control">
@@ -165,7 +165,7 @@ class Form extends React.Component {
             </button>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

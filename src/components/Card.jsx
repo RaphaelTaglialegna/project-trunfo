@@ -19,39 +19,38 @@ class Card extends React.Component {
       <div className="card">
 
         <div className="card-content">
-          <h2 className="title" data-testid="name-card">{cardName}</h2>
+          <h2 className="title is-size-4 nameCard" data-testid="name-card">{cardName}</h2>
         </div>
 
         <div className="card-image">
-          <figure className="image is-4by3">
-            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-          </figure>
+          <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         </div>
-        <div className="content">
+        <div className="content description">
           <p data-testid="description-card">{cardDescription}</p>
         </div>
 
-        <div className="content">
-          <ul className="my_list">
-            <li data-testid="attr1-card">
-              Força:
-              { cardAttr1}
-            </li>
-            <li data-testid="attr2-card">
-              Ataque:
+        <div className="content myListcontent">
+          <div className="myList">
+            <div className="List" data-testid="attr1-card">
+              Força:&nbsp;
+              {cardAttr1}
+            </div>
+            <div className="List" data-testid="attr2-card">
+              Ataque:&nbsp;
               {cardAttr2}
-            </li>
-            <li data-testid="attr3-card">
-              Defesa:
+            </div>
+            <div className="List" data-testid="attr3-card">
+              Defesa:&nbsp;
               {cardAttr3}
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
 
-        <div>
+        <div className="rareCard">
           <p data-testid="rare-card">{cardRare}</p>
           {
-            cardTrunfo === true ? <p data-testid="trunfo-card">Super Trunfo</p> : <p />
+            cardTrunfo === true
+              ? <p className="trunfo" data-testid="trunfo-card">Super Trunfo</p> : <p />
           }
         </div>
 

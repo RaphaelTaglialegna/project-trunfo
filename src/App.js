@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Painel from './components/Painel';
 
 class App extends React.Component {
   constructor() {
@@ -74,6 +75,7 @@ class App extends React.Component {
         cardAttr3: '0',
         cardImage: '',
         cardRare: '',
+        cardTrunfo: false,
         hasTrunfo: true,
       });
     } else {
@@ -104,46 +106,40 @@ class App extends React.Component {
 
     return (
       <>
-        <section
-          className="hero"
-          style={ {
-            backgroundColor: '#7ae7c7',
-          } }
-        >
+        <section className="hero">
           <div className="hero-body">
-            <p className="title">
-              Tryunfo
-            </p>
+            <h1 className="titleHero">
+              Tryunfo Card Game
+            </h1>
           </div>
         </section>
 
         <div className="columns">
           <div
-            className="column is-one-third "
-            style={ {
-              backgroundColor: '#FFF689',
-            } }
+            className="column "
+
           >
             <Form { ...this.state } />
           </div>
-          <div
-            className="column"
-            style={ {
-              backgroundColor: '#58355e',
-            } }
-          >
+          <div className="column">
             <Card { ...this.state } />
           </div>
         </div>
-        <div>
-          { myCards.map((myCard) => (
-            <div key={ myCard.cardName }>
-              <Card
-                key={ myCard.cardName }
-                { ...myCard }
-              />
-              <div className="field is-grouped">
-                <div className="control">
+        <section className="secMain">
+          <Painel />
+          <div className="divContainer">
+            { myCards.map((myCard) => (
+              <div className="flip-card" key={ myCard.cardName }>
+                <div className="flip-card-inner">
+                  <div className="flip-card-front" />
+                  <div className="flip-card-back">
+                    <Card
+                      key={ myCard.cardName }
+                      { ...myCard }
+                    />
+                  </div>
+                </div>
+                <div className="control deleet">
                   <button
                     className="button is-link"
                     data-testid="delete-button"
@@ -153,16 +149,18 @@ class App extends React.Component {
                     Excluir
                   </button>
                 </div>
-              </div>
-            </div>))}
-        </div>
-        <div className="flip-card">
-          <div className="flip-card-inner">
-            <div className="flip-card-front" />
-            <div className="flip-card-back" />
+              </div>))}
           </div>
-        </div>
-
+        </section>
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              Project Tryunfo Oct. 14, 2021 developed&nbsp;
+              <strong>Raphael Taglialegna</strong>
+              .
+            </p>
+          </div>
+        </footer>
       </>
     );
   }
