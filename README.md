@@ -1,6 +1,6 @@
 <h1 align="center">
   <img src="https://i.ibb.co/cNhhndj/trunfo-project.png" alt="trunfo-project" width="600px" border="0"><br>
-    Super Trunfu - Project
+    Super Trunfo - Project
 </h1>
 
 <h4 align="center">
